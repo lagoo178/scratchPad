@@ -13,16 +13,12 @@ class SceneMain extends Phaser.Scene {
        //define our objects
        
        this.char = this.add.sprite(game.config.width/2,game.config.height/2,"boy");
+       
+        var frameNames= this.anims.generateFrameNumbers('boy');
+
        this.anims.create({
             key: 'walk',
-            frames: [
-                { key: 'boy',frame:0 },
-                { key: 'boy',frame:1 },
-                { key: 'boy',frame:2 },
-                { key: 'boy',frame:3 },
-                { key: 'boy',frame:4 },
-                { key: 'boy',frame:5 },
-            ],
+            frames: frameNames,
             frameRate: 10,
             repeat: -1
         });
