@@ -24,6 +24,8 @@ class SceneMain extends Phaser.Scene {
         });
        this.char.play('walk');
 
+       this.text1=this.add.text(200,300,"HELLO!", {fontFamily:'Anton', color:'#ff0000', fontSize:'40px'});
+
 
        //this.face = this.add.image(0, 0, "face");
        //this.face.setOrigin(0.5,0.5);
