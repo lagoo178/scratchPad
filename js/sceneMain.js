@@ -37,6 +37,11 @@ class SceneMain extends Phaser.Scene {
     }
     update() {
         //constant running loop
+        this.char.x+=2;
+        if (this.char.x>game.config.width)
+        {
+            this.char.x=0;
+        }
     }
 
 }
