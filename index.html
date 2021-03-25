@@ -5,12 +5,123 @@
     <title>Game Title Here</title>
     <script src="js/phaser.min.js">  
     </script>
-    <script src="js/main.js"></script>
-    <script src="js/sceneMain.js"></script>
+    
 </head>
 <body>
 
-<div id='phaser-game'></div>
+	<script type="text/javascript" >	
+
+	// Our game scene
+	var TitleScene = new Phaser.Class({
+		Extends: Phaser.Scene,
+
+		initialize:
+
+
+
+		function TitleScene()
+		{
+			Phaser.Scene.call(this, {key: 'TitleScene'});
+		},
+
+		preload: function () 
+	    {
+		
+			this.load.image('background', 'images/mainbg.png');
+	        this.load.image('buttonBG', 'images/buttona.png');
+	        
+	        
+		},
+
+		create: function ()
+		{
+		    var bg = this.add.sprite(0,0,'background');
+			bg.setOrigin(0,0);
+
+			var title = this.add.text(100,100, 'Welcome to Dark-Corners!');
+			var titlemenu = this.add.text(100,140, 'MAIN MENU');
+	        var button1 = this.add.image(305,180, 'buttonBG').setInteractive();
+
+			button1.on('pointerdown', function () {
+
+		        this.scene.start('MainScene');
+
+		    }, this);
+
+	        //this.input.manager.enabled = true;
+	        
+	        //button1.input.once('pointerdown', function () {
+
+		    //    this.scene.start('MainScene');
+
+		    //}, this);
+
+		        //this.input.manager.enabled = true;
+
+		        //this.input.once('pointerdown', function () {
+
+		        //this.scene.start('MainScene');
+
+		        //}, this);
+
+		        //this.input.manager.enabled = true;
+
+		        //this.input.once('pointerdown', function () {
+
+		        //this.scene.start('MainScene');
+
+		        //}, this);
+
+
+		}
+
+
+	});
+
+	var MainScene = new Phaser.Class({
+
+	    Extends: Phaser.Scene,
+
+	    initialize:
+
+	    function MainScene ()
+	    {
+	        Phaser.Scene.call(this, {key: 'MainScene'});
+
+
+	    },
+
+	    preload: function ()
+	    {
+	    
+	    },
+
+	    create: function ()
+	    {
+	       //check.call(this);
+	    },
+
+
+	});
+
+	var config = {
+	        type: Phaser.AUTO,
+	        width: 800,
+	        height: 600,
+	        physics: {
+	            default: 'arcade',
+	            arcade: {
+	                gravity: { y: 300 },
+	                debug: false
+	            }
+	        },
+	    scene: [ TitleScene, MainScene ]
+	};
+
+	var game = new Phaser.Game(config);
+
+	</script>
 
 </body>
+
 </html>

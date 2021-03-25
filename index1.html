@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="UTF-8">
+    <title>Game Title Here</title>
+    <script src="js/phaser.min.js">  
+    </script>
+</head>
+<body>
+
+<script type="text/javascript">
+
+    var SceneA = new Phaser.Class({
+
+	    Extends: Phaser.Scene,
+
+	    initialize:
+
+	    function SceneA ()
+	    {
+	        Phaser.Scene.call(this, { key: 'sceneA' });
+	    },
+
+	    preload: function () 
+	    {
+		
+			this.load.image('background', 'images/face.png');
+		},
+
+	    create: function ()	    
+	    {
+	      var bg = this.add.sprite(0,0,'background');
+		  bg.setOrigin(0,0);
+
+		  var text = this.add.text(100,100, 'Welcome to my game!');
+	    }
+
+	});
+
+	var SceneB = new Phaser.Class({
+
+	    Extends: Phaser.Scene,
+
+	    initialize:
+
+	    function SceneB ()
+	    {
+	        Phaser.Scene.call(this, { key: 'sceneB', active: true });
+	    },
+
+	    preload: function ()
+	    {
+	        
+	    },
+
+	    create: function ()
+	    {
+	        
+	    },
+
+		update: function () {
+
+		}
+
+
+	});
+
+    var config = {
+        type: Phaser.AUTO,
+        width: 800,
+        height: 600,
+        physics: {
+            default: 'arcade',
+            arcade: {
+                gravity: { y: 300 },
+                debug: false
+            }
+        },
+        scene: [ SceneA, SceneB ]
+    };
+
+    var game = new Phaser.Game(config);
+</script>
+
+</body>
+</html>
